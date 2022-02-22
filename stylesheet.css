@@ -1,0 +1,36 @@
+body{
+    background-color: blueviolet;
+}
+
+p{}
+
+#grid{
+    width: 50%;
+    background: white;
+    margin: auto;
+}
+.cell{
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid red;
+    padding: 2rem 0rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+#c0, #c1, #c2{
+    border-top: none;
+}
+#c6, #c7, #c8{
+    border-bottom: none;
+}
+#c0, #c3, #c6{
+    border-left: none;
+}
+#c2, #c5, #c8{
+    border-right: none;
+}
+
+#modal{
+    display: none;
+}
