@@ -19,6 +19,7 @@ window.addEventListener("load", function(){
 let turn = "X";
 let win = false;
 let modal = document.getElementById('modal');
+let i=0;
 
 
 function makeMove(){
@@ -26,7 +27,14 @@ function makeMove(){
     let value = this.innerHTML;
     
     if(value === ""){
-        this.innerHTML = turn;
+        this.innerText = turn;
+        
+        if(i%2 == 0){
+            this.style.color = "var(--green)";
+        }else{
+            this.style.color = "var(--lime)"; 
+        }
+        i++;     
     }else{
         alert("pick a new spot");
     }
@@ -49,44 +57,44 @@ function winCheck(){
     
     //8 possible win condition checks
     if(c1 === turn && c2 === turn && c3 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c4 === turn && c5 === turn && c6 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c7 === turn && c8 === turn && c9 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c1 === turn && c4 === turn && c7 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c2 === turn && c5 === turn && c8 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c3 === turn && c6 === turn && c9 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c1 === turn && c5 === turn && c9 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }else if(c3 === turn && c5 === turn && c7 === turn){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
         document.getElementById('winTxt').innerText = turn + " wins!";
     }//tie checker
     else if(c1 != "" && c2 != "" && c3 != "" && 
             c4 != "" && c5 != "" && c6 != "" && 
             c7 != "" && c8 != "" && c9 != "" &&  win == false){
-        modal.style.display = "block";
+        modal.style.display = "flex";
         win = true;
-        document.getElementById('winTxt').innerText = "Stalemate :(";
+        document.getElementById('winTxt').innerText = "It's a tie!";
     }
 
     nextTurn();
@@ -94,12 +102,14 @@ function winCheck(){
 
 
 function nextTurn(){
+    let turnChar = document.getElementById('turn');
+
     if(turn === "X"){
         turn = "O";
-        document.getElementById('turn').innerText = "O's turn";
+        turnChar.innerHTML = "O";
     }else{
         turn = "X";
-        document.getElementById('turn').innerText = "X's turn";
+        turnChar.innerHTML = "X";
     }
 }
 
